@@ -13,7 +13,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
-
+    var contentView: ContentView!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -24,15 +24,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("Main Window")
 
-        window.contentView = NSHostingView(rootView: ContentView())
-
+        self.contentView = ContentView()
+        window.contentView = NSHostingView(rootView: self.contentView)
         window.makeKeyAndOrderFront(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
-
 }
 
